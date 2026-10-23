@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B(R)ETTER – CHOB Schneidebretter</title>
+<meta name="description" content="Premium-Schneidebretter aus Stirnholz und Massivholz. Gefertigt in Deutschland. Designed in Berlin.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Jost:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="web/img/produkte/chob-pro-walnuss-stirnholz-schneidebrett.webp">
+<style>
+/* ── Tokens ─────────────────────────────────────────────
+   Ein Typo-System für die ganze Seite (aus Variante 06):
+   Antonio = kantige Display-/Label-Schrift (Namen, Headlines, Zahlen)
+   Cormorant Garamond kursiv = die leise Gegenstimme (Rollen, Zitate)
+   Jost = Fließtext · IBM Plex Mono = Maße und Etiketten          */
+:root{
+  --kohle:#0e0e0d;        /* Bühne */
+  --anthrazit:#1a1917;    /* Flächen */
+  --anthrazit-2:#232120;
+  --linie:#2e2c28;        /* Hairlines */
+  --ahorn:#efe4cc;        /* Ahorn-Creme: Text + Haupt-Button */
+  --ahorn-dim:#a9a293;    /* Sekundärtext */
+  --gold:#c8a45d;         /* Prägung – nur Akzente */
+  --gold-hi:#e6cf98;
+  --eiche:#c99a5f;
+  --walnuss:#5d3b26;
+  --display:"Antonio","Arial Narrow",sans-serif;
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --text:"Jost",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --gutter:clamp(16px,5vw,64px);
+  --max:1240px;
+  --nav:54px;
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:var(--nav)}
+body{margin:0;background:var(--kohle);color:var(--ahorn);font:400 17px/1.55 var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,video,svg{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+mark.todo{background:#5b4a1f;color:#ffe3a3;padding:0 .3em;border-radius:3px;font:500 .8em var(--mono)}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Typo */
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 18px}
+.d2,.d3{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.005em;margin:0;line-height:.94}
+.d2{font-size:clamp(44px,8vw,104px)}
+.d3{font-size:clamp(32px,4.4vw,60px)}
+.d2 em,.d3 em{font-family:var(--serif);font-style:italic;font-weight:500;text-transform:none;color:var(--gold-hi);letter-spacing:0}
+.lede{font-size:clamp(17px,1.5vw,20px);color:var(--ahorn-dim);max-width:36ch;margin:20px 0 0}
+.lede b{color:var(--ahorn);font-weight:500}
+
+/* Buttons – Ahorn-Pillen */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:46px;padding:0 24px;border-radius:999px;font:500 15px/1 var(--text);text-decoration:none;border:1px solid transparent;transition:background .25s,color .25s,border-color .25s;cursor:pointer}
+.btn-voll{background:var(--ahorn);color:var(--kohle)}
+.btn-voll:hover{background:#fff}
+.btn-linie{border-color:#4a4740;color:var(--ahorn);background:rgba(14,14,13,.4)}
+.btn-linie:hover{border-color:var(--ahorn)}
+.link{color:var(--ahorn);text-decoration:none;font-weight:500;border-bottom:1px solid #4a4740;padding-bottom:2px}
+.link:hover{border-color:var(--ahorn)}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+
+/* Ahornader – das wiederkehrende Strukturelement */
+.ader{display:flex;gap:10px;justify-content:center;height:56px}
+.ader::before,.ader::after{content:"";width:2px;background:var(--ahorn);opacity:.55;transform-origin:top;animation:ader 1.4s var(--ease) both}
+.ader::after{animation-delay:.12s}
+@keyframes ader{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.adern{display:grid;gap:7px;max-width:520px}
+.adern i{display:block;height:0;border-top:2px solid var(--ahorn);opacity:.85}
+
+/* Freisteller-Zuschnitt: das Bild wird auf die Brett-Kontur zugeschnitten,
+   damit alle Bretter exakt dieselbe Bühnenbreite bekommen */
+.cut{position:relative;width:100%;aspect-ratio:var(--w)/var(--h);overflow:hidden}
+.cut img{position:absolute;max-width:none;width:calc(1400 / var(--w) * 100%);height:auto;left:calc(var(--x) / var(--w) * -100%);top:calc(var(--y) / var(--h) * -100%);-webkit-user-drag:none;transition:opacity .4s var(--ease)}
+.cut img.weg{opacity:0}
+
+/* ── Nav ───────────────────────────────────────────── */
+.nav{position:sticky;top:0;z-index:50;background:rgba(14,14,13,.8);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--linie)}
+.nav .wrap{display:flex;align-items:center;gap:28px;height:var(--nav)}
+.nav img{height:18px;width:auto}
+.nav ul{display:none;list-style:none;margin:0 auto 0 12px;padding:0;gap:26px}
+.nav ul a{font-size:14px;color:var(--ahorn-dim);text-decoration:none}
+.nav ul a:hover{color:var(--ahorn)}
+.nav .btn{margin-left:auto;min-height:34px;padding:0 16px;font-size:14px}
+@media(min-width:860px){.nav ul{display:flex}.nav .btn{margin-left:0}}
+
+/* ── 1 · Hero (Apple-Logik: Zeile, Buttons, ganzes Produkt) ── */
+.hero{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;overflow:hidden;
+  padding:clamp(28px,5vh,56px) var(--gutter) 28px;
+  background:radial-gradient(60% 50% at 50% 72%, rgba(200,164,93,.14), transparent 72%)}
+.hero h1{font:700 clamp(46px,13.4vw,64px)/.92 var(--display);text-transform:uppercase;letter-spacing:.01em;margin:0}
+.hero h1 span{display:block}
+.hero h1 span+span{color:var(--gold)}
+.hero-zeile{margin:14px auto 0;font-size:clamp(16px,1.4vw,19px);color:var(--ahorn-dim);max-width:62ch;text-wrap:balance}
+.hero-zeile b{color:var(--ahorn);font-weight:500}
+.hero .ctas{justify-content:center;margin-top:20px}
+.hero-buehne{width:calc(100% + 16px);margin-top:28px;display:grid;place-items:center}
+.hero-buehne .cut{width:100%;max-width:1120px;filter:drop-shadow(0 34px 40px rgba(0,0,0,.7));animation:auftritt 1.4s .1s var(--ease) both}
+@keyframes auftritt{from{opacity:0;transform:translateY(40px) scale(.96)}to{opacity:1;transform:none}}
+@media(min-width:700px){
+  /* Desktop/Laptop: der Hero ist genau einen Bildschirm hoch, das Brett nimmt den Rest – vollständig sichtbar */
+  .hero{height:calc(100svh - var(--nav));min-height:540px;max-height:1100px;padding-bottom:clamp(16px,3vh,36px)}
+  .hero h1{font-size:clamp(52px,min(6.2vw,8.6vh),96px)}
+  .hero-buehne{flex:1 1 0;min-height:0;width:100%;margin-top:clamp(12px,3vh,36px);container-type:size}
+  .hero-buehne .cut{width:min(100cqw, calc(100cqh * 2.229), 1040px)}
+}
+@media(min-width:1000px){.hero h1 span{display:inline}.hero h1 span+span{margin-left:.25em}}
+
+/* ── 2 · Vorteilsleiste ────────────────────────────── */
+.vorteile{border-block:1px solid var(--linie);background:var(--anthrazit)}
+.vorteile ul{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:1fr 1fr;max-width:var(--max)}
+.vorteile li{display:flex;gap:12px;align-items:center;padding:16px var(--gutter);font-size:14px;line-height:1.3;border-bottom:1px solid var(--linie)}
+.vorteile li:nth-child(odd){border-right:1px solid var(--linie)}
+.vorteile li:nth-last-child(-n+2){border-bottom:0}
+.vorteile svg{flex:0 0 24px;width:24px;height:24px;color:var(--gold)}
+.vorteile b{display:block;font-weight:600}
+.vorteile small{color:var(--ahorn-dim);font-size:12.5px}
+@media(max-width:420px){.vorteile li{padding:14px 12px;gap:10px;font-size:13px}.vorteile svg{flex-basis:20px;width:20px;height:20px}}
+@media(min-width:900px){.vorteile ul{grid-template-columns:repeat(4,1fr)}.vorteile li{border-bottom:0;border-right:1px solid var(--linie);padding:22px clamp(14px,2vw,26px);justify-content:center}.vorteile b{white-space:nowrap}.vorteile li:last-child{border-right:0}}
+
+/* ── Sektionen ─────────────────────────────────────── */
+.sektion{padding:clamp(72px,10vw,140px) 0}
+.kopf{margin-bottom:clamp(28px,4vw,52px)}
+.kopf-zeile{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* ── 3 · Drei Bretter: Karten (Design aus 06) ──────── */
+.spur{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:86%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;
+  margin-inline:calc(var(--gutter) * -1);padding:4px var(--gutter) 10px;scroll-padding-inline:var(--gutter);cursor:grab}
+.spur::-webkit-scrollbar{display:none}
+.spur>*{scroll-snap-align:center}
+.spur.zieht{cursor:grabbing;scroll-snap-type:none}
+.spur.zieht *{pointer-events:none;user-select:none}
+@media(min-width:700px){.spur{grid-auto-columns:56%}.spur>*{scroll-snap-align:start}}
+@media(min-width:1100px){.spur{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible;margin:0;padding:0;gap:0 20px;cursor:auto}
+  /* gleiche Zeilen in allen drei Karten: Preis und Button stehen auf einer Linie */
+  @supports (grid-template-rows:subgrid){.spur .brett{display:grid;grid-template-columns:minmax(0,1fr);grid-row:span 8;grid-template-rows:subgrid;row-gap:0}.spur .brett .preis{align-self:end}}}
+
+.brett{background:var(--anthrazit);border:1px solid var(--linie);border-radius:6px;padding:20px;display:flex;flex-direction:column;min-width:0}
+.brett .kopfzeile{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.brett h3{margin:0;font:700 28px/1 var(--display);letter-spacing:.04em;text-transform:uppercase}
+.brett .rolle{font:italic 500 21px/1.1 var(--serif);color:var(--gold-hi);text-align:right}
+.brett .stage{height:clamp(170px,46vw,230px);display:flex;align-items:center;justify-content:center;margin:14px 0 0;padding:0 7%;border-radius:4px;
+  background:radial-gradient(ellipse at 50% 62%,#2b241c 0%,#131110 68%)}
+.brett .stage .cut{filter:drop-shadow(0 18px 20px rgba(0,0,0,.6))}
+@media(min-width:1100px){.brett .stage{height:220px}}
+.brett .tri{font:600 13px/1.35 var(--display);letter-spacing:.1em;min-height:2.7em;text-wrap:balance;text-transform:uppercase;color:#d8ccb6;margin:16px 0 0}
+
+/* Größe: Fläche (aus 06) + Dicke (aus 02) */
+.groesse{margin:16px 0 18px;padding:16px 0;border-block:1px solid var(--linie);display:grid;gap:16px}
+.g-label{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:#8a8478;margin:0 0 8px}
+.flaeche{display:flex;align-items:flex-start;gap:16px;min-height:104px}.flaeche .fp{margin-top:2px}
+.fp{position:relative;flex:none;width:96px;aspect-ratio:45/33}
+.fp .ref{position:absolute;inset:0;border:1.5px dashed #6d6658;border-radius:1px}
+.fp .ist{position:absolute;left:0;bottom:0;background:rgba(200,164,93,.22);border:1.5px solid var(--gold);border-radius:1px}
+.fp .ist::before,.fp .ist::after{content:"";position:absolute;left:0;right:0;height:1.5px;background:rgba(239,228,204,.55)}
+.fp .ist::before{top:18%}.fp .ist::after{bottom:18%}
+.flaeche .zahl{display:block;font:700 clamp(24px,6.6vw,30px)/1 var(--display);letter-spacing:.03em;white-space:nowrap}
+.flaeche small{display:block;font-size:13.5px;color:var(--ahorn-dim);margin-top:6px;line-height:1.35}
+.dicke{display:grid;grid-template-columns:1fr auto;align-items:end;gap:14px}
+.seite{position:relative;width:100%;aspect-ratio:45/5}
+.seite .ref{position:absolute;inset:0;border:1.5px dashed #6d6658;border-radius:1px}
+.seite .ist{position:absolute;left:0;bottom:0;border-radius:1px;box-shadow:inset 0 1px 0 rgba(239,228,204,.35);transition:background .4s}
+.seite .ist[data-holz="walnuss"]{background:linear-gradient(180deg,#7b5136,#4a2e1d)}
+.seite .ist[data-holz="eiche"]{background:linear-gradient(180deg,#d9ad72,#a87b45)}
+.dicke .h{font:700 26px/1 var(--display);letter-spacing:.02em;text-align:right;white-space:nowrap}
+.dicke .h small{display:block;font:400 11px/1.2 var(--mono);color:#8a8478;letter-spacing:.06em;margin-top:4px;text-transform:uppercase}
+.dicke-hinweis{grid-column:1/-1;margin:-4px 0 0;font:400 12px/1.3 var(--mono);color:#8a8478}
+.dicke-hinweis i{display:inline-block;width:18px;height:9px;border:1.5px dashed #6d6658;vertical-align:-1px;margin-right:6px}
+
+/* Holzwahl (Design aus 01) */
+.holz{display:flex;gap:14px;align-items:center}
+.holz button{width:30px;height:30px;border-radius:50%;border:0;padding:0;cursor:pointer;position:relative;background:var(--c);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14)}
+.holz button::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:1.5px solid transparent;transition:border-color .2s}
+.holz button[aria-pressed="true"]::after{border-color:var(--ahorn)}
+.holz .holzname{font:500 15px var(--text);margin-left:2px}
+.brett .bau{min-height:2.8em;font:400 13px/1.4 var(--mono);color:var(--ahorn-dim);margin:12px 0 0;letter-spacing:.02em}
+.brett .preis{font:700 34px/1 var(--display);letter-spacing:.02em;margin:18px 0 16px}
+.brett .preis small{font:400 13px var(--text);color:var(--ahorn-dim);letter-spacing:0;margin-left:8px}
+.brett .btn{width:100%}
+.brett .preis{margin-top:auto;padding-top:18px}
+
+.steuer{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px}
+.dots{display:flex;gap:4px}
+.dots button{border:0;background:none;padding:12px 4px;cursor:pointer}
+.dots button span{display:block;height:6px;width:6px;border-radius:6px;background:#4a4740;transition:width .35s var(--ease),background .35s}
+.dots button[aria-current="true"] span{width:28px;background:var(--ahorn)}
+.wisch{font:400 12px var(--mono);color:#7b766b;letter-spacing:.04em}
+.pfeile{display:flex;gap:8px}
+.pfeile button{width:46px;height:46px;border-radius:50%;background:transparent;border:1px solid #3a3833;color:var(--ahorn);cursor:pointer;display:grid;place-items:center}
+.pfeile button:hover{border-color:var(--ahorn)}
+.pfeile button:disabled{opacity:.3;cursor:default}
+@media(min-width:1100px){.steuer.bretter-steuer{display:none}}
+.nur-maus{display:none}@media(hover:hover) and (pointer:fine){.nur-maus{display:inline}.nur-touch{display:none}}
+.bretter-fuss{margin:22px 0 0;font:400 13px/1.5 var(--mono);color:#7b766b;text-align:center}
+
+/* ── 4 · Seitenansicht ─────────────────────────────── */
+.kante-sek{background:var(--anthrazit);border-block:1px solid var(--linie)}
+.kanten{display:grid;gap:clamp(26px,4vw,44px);margin-top:clamp(36px,5vw,64px)}
+.kante{display:grid;gap:12px;align-items:center}
+@media(min-width:800px){.kante{grid-template-columns:260px 1fr;gap:40px}}
+.kante-text b{display:block;font:700 clamp(30px,3.4vw,44px)/1 var(--display);letter-spacing:.04em;text-transform:uppercase}
+.kante-text span{display:block;font:400 14px/1.4 var(--mono);color:var(--ahorn-dim);margin-top:4px}
+.kante-text span strong{color:var(--gold-hi);font-weight:500}
+.kante-bild{width:var(--anteil);filter:drop-shadow(0 16px 18px rgba(0,0,0,.55))}
+.kanten-fuss{margin:clamp(28px,4vw,44px) 0 0;font:400 12.5px/1.5 var(--mono);color:#7b766b}
+
+/* ── 5 · Creator-Hero (aus 02) ─────────────────────── */
+.c-hero{position:relative;isolation:isolate;overflow:hidden;padding:clamp(40px,5vw,72px) 0 clamp(64px,8vw,110px)}
+.c-hero-bg{position:absolute;inset:0;z-index:-2}
+.c-hero-bg img{width:100%;height:100%;object-fit:cover;object-position:30% 60%;opacity:.4}
+.c-hero::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg, var(--kohle) 0%, rgba(14,14,13,.55) 22%, rgba(14,14,13,.35) 45%, rgba(14,14,13,.88) 75%, var(--kohle) 100%)}
+@media(min-width:900px){
+  .c-hero-bg img{object-position:center;opacity:.5}
+  .c-hero::before{background:linear-gradient(90deg, rgba(14,14,13,.96) 0%, rgba(14,14,13,.72) 45%, rgba(14,14,13,.2) 100%), linear-gradient(180deg, var(--kohle) 0%, transparent 18%, transparent 80%, var(--kohle))}
+}
+.stories{display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;padding:4px var(--gutter) 6px;margin:0 calc(-1 * var(--gutter)) 28px;scroll-snap-type:x proximity;scroll-padding-inline:var(--gutter)}
+.stories::-webkit-scrollbar{display:none}
+.story{flex:0 0 auto;width:70px;background:none;border:0;padding:0;cursor:pointer;text-align:center;scroll-snap-align:start}
+.ring{display:block;border-radius:50%;padding:3px;background:conic-gradient(var(--ahorn) 0 50%, var(--gold) 50% 100%)}
+.story .ring{width:70px;height:70px}
+.ring img,.ring .ini{width:100%;height:100%;border-radius:50%;object-fit:cover;border:2px solid var(--kohle);background:var(--anthrazit)}
+.ini{display:grid;place-items:center;font:700 22px/1 var(--display);color:var(--ahorn)}
+.story .lbl{display:block;margin-top:7px;font:500 11.5px/1.2 var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.story:hover .ring{background:conic-gradient(var(--gold-hi) 0 50%, var(--gold) 50% 100%)}
+@media(min-width:900px){.stories{margin:0 0 44px;padding:4px 0 6px;gap:18px;overflow:visible}.story,.story .ring{width:82px}.story .ring{height:82px}}
+.reach{margin:0;font-family:var(--display);text-transform:uppercase}
+.reach .ueber{display:block;font:700 clamp(22px,5.4vw,40px)/1 var(--display);color:var(--gold-hi);letter-spacing:.04em}
+.reach .gross{display:flex;align-items:baseline;gap:.08em;font:700 clamp(110px,32vw,260px)/.82 var(--display);letter-spacing:-.01em;margin:.06em 0 0;font-variant-numeric:tabular-nums}
+.reach .gross .einheit{font-size:.4em;letter-spacing:.01em}
+.odo{display:inline-flex;overflow:hidden;height:1.12em;line-height:1.12;margin:-.15em 0 -.05em}
+.odo .col{display:flex;flex-direction:column;transition:transform 1.8s var(--ease)}
+.odo .col span{height:1.12em;display:block;text-align:center}
+.reach .zeile{display:block;margin-top:.3em;font:700 clamp(34px,8.4vw,72px)/.95 var(--display);letter-spacing:.01em}
+.reach .zeile .dim{color:var(--ahorn-dim)}
+.fein{margin:16px 0 0;font:400 12.5px/1.45 var(--mono);color:var(--ahorn-dim);max-width:48ch}
+.c-hero .adern{margin:22px 0 24px}
+.c-hero .lede{margin:0 0 24px;color:#d6cdbf}
+
+/* ── 6 · Creator-Wand (aus 02) ─────────────────────── */
+.wand{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:80%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
+  padding:4px var(--gutter) 10px;margin:0 calc(-1 * var(--gutter));scroll-padding-inline:var(--gutter);overscroll-behavior-x:contain}
+.wand::-webkit-scrollbar{display:none}
+@media(min-width:600px){.wand{grid-auto-columns:46%}}
+@media(min-width:960px){
+  .wand{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);overflow:visible;padding:0;margin:0;gap:16px}
+  .wand .ck:first-child{grid-column:span 2}
+}
+.ck{position:relative;scroll-snap-align:start;background:var(--anthrazit);border:1px solid var(--linie);border-radius:6px;padding:22px 18px 18px;display:flex;flex-direction:column;transition:border-color .25s,transform .35s var(--ease)}
+.ck:hover{border-color:#5a5246}
+@media(hover:hover){.ck:hover{transform:translateY(-3px)}}
+.ck .pic{width:100%;aspect-ratio:1;max-width:190px;margin:0 auto 18px;padding:4px}
+.ck .pic img,.ck .pic .ini{border-width:3px;border-color:var(--anthrazit)}
+.ck .pic .ini{font-size:60px}
+.ck h3{margin:0;font:700 30px/1 var(--display);text-transform:uppercase;letter-spacing:.02em;text-wrap:balance}
+.ck .wer{margin:6px 0 0;font:400 12.5px/1.35 var(--mono);color:var(--ahorn-dim)}
+.ck .desc{margin:10px 0 0;font-size:15px;line-height:1.45;color:#d6cdbf}
+.ck .haupt{text-decoration:none}
+.ck .haupt::after{content:"";position:absolute;inset:0;z-index:1;border-radius:6px}
+.ck .haupt:focus-visible{outline:none}
+.ck:has(.haupt:focus-visible){outline:2px solid var(--gold);outline-offset:3px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;position:relative;z-index:2}
+.chip{display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 11px;border:1px solid #3a3833;border-radius:999px;background:var(--kohle);font:500 13px/1 var(--mono);text-decoration:none;white-space:nowrap}
+.chip svg{width:16px;height:16px;flex:none}
+.chip:hover{border-color:var(--ahorn)}
+.ck .summe{margin-top:auto;padding-top:16px;display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.ck .summe b{font:700 30px/1 var(--display);letter-spacing:.02em;color:var(--gold-hi)}
+.ck .summe small{font:400 12px/1 var(--mono);color:var(--ahorn-dim)}
+.mehr{position:absolute;top:10px;right:10px;z-index:2;width:44px;height:44px;border-radius:50%;border:0;background:transparent;cursor:pointer;display:grid;place-items:center;color:var(--ahorn-dim)}
+.mehr:hover{color:var(--ahorn);background:var(--anthrazit-2)}
+@media(min-width:960px){
+  .wand .ck:first-child{padding:28px;display:grid;grid-template-columns:minmax(0,42%) 1fr;column-gap:28px;align-content:start}
+  .wand .ck:first-child>*{grid-column:2}
+  .wand .ck:first-child .pic{grid-column:1;grid-row:1 / span 6;max-width:none;margin:0;align-self:center}
+  .wand .ck:first-child h3{font-size:clamp(44px,4vw,58px);align-self:end}
+  .wand .ck:first-child .desc{font-size:17px}
+  .wand .ck:not(:first-child) .pic{max-width:140px}
+  .wand .ck:not(:first-child) h3{font-size:26px}
+  .wand-steuer{display:none!important}
+}
+.wand-steuer{margin-top:14px}
+
+/* Bottom-Sheet */
+dialog.sheet{margin:auto 0 0;width:100%;max-width:100%;max-height:85svh;border:0;border-top:1px solid var(--linie);padding:0;background:var(--anthrazit);color:var(--ahorn);border-radius:14px 14px 0 0}
+dialog.sheet::backdrop{background:rgba(0,0,0,.6)}
+dialog.sheet[open]{animation:sheetHoch .38s var(--ease)}
+@keyframes sheetHoch{from{transform:translateY(100%)}to{transform:none}}
+@media(min-width:700px){dialog.sheet{margin:auto;max-width:440px;border-radius:8px;border:1px solid var(--linie)}dialog.sheet[open]{animation:einblenden .25s ease-out}}
+@keyframes einblenden{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sheet-in{padding:10px var(--gutter) calc(20px + env(safe-area-inset-bottom))}
+@media(min-width:700px){.sheet-in{padding:20px 24px 24px}}
+.griff{width:40px;height:4px;border-radius:2px;background:var(--linie);margin:0 auto 14px}
+@media(min-width:700px){.griff{display:none}}
+.sheet-kopf{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.sheet-kopf .ring{width:64px;height:64px;flex:none}
+.sheet-kopf .ring img,.sheet-kopf .ring .ini{border-color:var(--anthrazit)}
+.sheet-kopf h3{margin:0;font:700 28px/1 var(--display);text-transform:uppercase;letter-spacing:.02em}
+.sheet-kopf p{margin:4px 0 0;font:400 13px/1.3 var(--mono);color:var(--ahorn-dim)}
+.sheet-zu{margin-left:auto;align-self:flex-start;width:44px;height:44px;border:0;background:var(--anthrazit-2);border-radius:50%;cursor:pointer;font-size:20px}
+.sheet-links{list-style:none;margin:0;padding:0;border-top:1px solid var(--linie)}
+.sheet-links a{display:grid;grid-template-columns:28px 1fr auto 16px;align-items:center;gap:12px;min-height:60px;border-bottom:1px solid var(--linie);text-decoration:none}
+.sheet-links a:hover{background:var(--anthrazit-2)}
+.sheet-links svg{width:22px;height:22px}
+.sheet-links .p{display:block;font-size:15px}
+.sheet-links .hd{display:block;font:400 12px/1.2 var(--mono);color:var(--ahorn-dim)}
+.sheet-links .n{font:700 22px/1 var(--display)}
+.sheet .notiz{margin:14px 0 0;font-size:14px;color:var(--ahorn-dim)}
+
+/* ── 7 · Technik ───────────────────────────────────── */
+.feature{display:grid;gap:clamp(28px,4vw,56px);align-items:center;padding:clamp(64px,9vw,120px) 0}
+@media(min-width:900px){.feature{grid-template-columns:1fr 1fr}.feature.links .bild{order:-1}}
+.feature .bild{position:relative;border-radius:8px;overflow:hidden}
+.feature .bild.frei{border-radius:0;overflow:visible}
+.feature .bild img{width:100%;height:auto}
+.feature h3{font:700 clamp(40px,5.4vw,76px)/.95 var(--display);margin:0;text-transform:uppercase;letter-spacing:.005em}
+.feature p:not(.eyebrow){color:var(--ahorn-dim);max-width:40ch;margin:20px 0 0;font-size:18px}
+.feature p b{color:var(--ahorn);font-weight:500}
+.feature-full{padding-top:clamp(64px,9vw,120px);text-align:center}
+.feature-full .lede{margin-inline:auto}
+.feature-full .bild{margin-top:clamp(32px,5vw,64px)}
+.feature-full .bild img{width:100%;height:auto}
+.zonen{position:relative;max-width:980px;margin:clamp(24px,4vw,56px) auto 0}
+.zonen img{width:100%;height:auto;filter:drop-shadow(0 40px 50px rgba(0,0,0,.6))}
+.zonen ol{list-style:none;margin:0;padding:0}
+.zonen li{display:flex;gap:14px;align-items:baseline;padding:14px 0;border-top:1px solid var(--linie);text-align:left}
+.zonen li b{font:500 12px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--gold);min-width:8ch}
+@media(min-width:900px){
+  .zonen ol{position:absolute;right:-2%;top:0;bottom:0;width:30%;display:flex;flex-direction:column;justify-content:center}
+  .zonen{padding-right:30%}
+}
+
+/* ── 8 · Film ──────────────────────────────────────── */
+.film{position:relative;height:min(92vh,860px);min-height:520px;overflow:hidden;background:#000}
+.film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.film::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,13,.9) 0%,rgba(14,14,13,0) 32%,rgba(14,14,13,0) 60%,rgba(14,14,13,.92) 100%)}
+.film .text{position:absolute;z-index:2;left:0;right:0;bottom:clamp(36px,6vw,80px);text-align:center;padding:0 var(--gutter)}
+.film .eyebrow{color:var(--ahorn-dim)}
+.film-ton{position:absolute;z-index:3;top:20px;right:20px;width:42px;height:42px;border-radius:50%;background:rgba(14,14,13,.6);border:1px solid #3a3833;color:var(--ahorn);display:grid;place-items:center;cursor:pointer}
+
+/* ── 9 · Herkunft ──────────────────────────────────── */
+.herkunft{text-align:center}
+.herkunft .d2 span{display:block}
+.herkunft .d2 span+span{color:var(--gold)}
+.herkunft-raster{display:grid;gap:22px;text-align:left;margin-top:clamp(36px,5vw,64px)}
+@media(min-width:900px){.herkunft-raster{grid-template-columns:.85fr 1.15fr;align-items:center;gap:56px}}
+.herkunft-raster figure{margin:0;border-radius:8px;overflow:hidden;aspect-ratio:4/5;background:var(--anthrazit)}
+.herkunft-raster figure img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.punkte-liste{list-style:none;margin:0;padding:0}
+.punkte-liste li{padding:22px 0;border-top:1px solid var(--linie)}
+.punkte-liste li:last-child{border-bottom:1px solid var(--linie)}
+.punkte-liste b{display:block;font:700 28px/1.05 var(--display);text-transform:uppercase;letter-spacing:.02em;margin-bottom:6px}
+.punkte-liste span{color:var(--ahorn-dim)}
+
+/* ── 10 · Stimmen ──────────────────────────────────── */
+.stimmen{display:grid;gap:22px}
+@media(min-width:900px){.stimmen{grid-template-columns:.8fr 1fr 1fr;align-items:start}}
+.kunden{font:700 clamp(54px,6.4vw,88px)/.92 var(--display);text-transform:uppercase;margin:0;letter-spacing:.005em}
+.kunden em{display:block;font:italic 500 .5em/1.1 var(--serif);text-transform:none;color:var(--gold-hi);margin-top:.2em}
+blockquote{margin:0;padding:28px;border-radius:6px;background:var(--anthrazit);border:1px solid var(--linie);font:italic 500 clamp(21px,1.9vw,25px)/1.35 var(--serif);color:#ece0c9}
+blockquote footer{font:400 12px var(--mono);font-style:normal;color:#8a8478;margin-top:16px;letter-spacing:.06em}
+
+/* ── 11 · Unboxing ─────────────────────────────────── */
+.box-sek{background:var(--anthrazit);border-block:1px solid var(--linie)}
+.box-bilder{display:grid;gap:14px;margin-top:clamp(32px,5vw,56px)}
+@media(min-width:900px){.box-bilder{grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr}.box-bilder figure:first-child{grid-row:span 2}}
+.box-bilder figure{margin:0;border-radius:8px;overflow:hidden;background:#000}
+.box-bilder img{width:100%;height:100%;object-fit:cover}
+.box-fakten{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;justify-content:center}
+.box-fakten span{font:400 13px var(--mono);border:1px solid #3a3833;border-radius:999px;padding:8px 14px;color:var(--ahorn-dim)}
+
+/* ── 12 · Pflege ───────────────────────────────────── */
+.pflege{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px}
+.pflege a{display:flex;gap:16px;align-items:center;text-decoration:none;background:var(--anthrazit);border:1px solid var(--linie);border-radius:6px;padding:14px 18px 14px 14px;transition:border-color .25s}
+.pflege a:hover{border-color:#4f4b43}
+.pflege img{width:76px;height:76px;object-fit:contain;flex:none}
+.pflege b{display:block;font:700 21px/1.05 var(--display);text-transform:uppercase;letter-spacing:.03em}
+.pflege span{font-size:14px;color:var(--ahorn-dim)}
+
+/* ── 13 · Schluss ──────────────────────────────────── */
+.schluss{text-align:center;padding:clamp(90px,12vw,170px) 0 clamp(60px,8vw,100px)}
+.schluss .lede{margin-inline:auto}
+.schluss .ctas{justify-content:center;margin-top:28px}
+.service{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));border-top:1px solid var(--linie);margin-top:clamp(56px,8vw,96px)}
+.service div{padding:24px 6px;border-bottom:1px solid var(--linie);font-size:14px;color:var(--ahorn-dim);text-align:left}
+.service b{display:block;color:var(--ahorn);font-weight:500;font-size:15px;margin-bottom:2px}
+footer.fuss{border-top:1px solid var(--linie);padding:36px 0 48px;font-size:13px;color:#8a8478}
+footer.fuss .wrap{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center;justify-content:space-between}
+footer.fuss img{height:16px;width:auto;opacity:.8}
+
+/* Reveal – nur Bewegung, nie Unsichtbarkeit (ohne JS/Animation bleibt alles sichtbar) */
+.js .zeigen{transform:translateY(28px);transition:transform 1s var(--ease)}
+.js .zeigen.da{transform:none}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .js .zeigen{transform:none}
+}
+
+/* MATERIAL · antibakteriell + ohne Mikroplastik */
+.mat{position:relative;padding:clamp(80px,11vw,150px) 0 clamp(32px,4vw,56px);background:radial-gradient(120% 80% at 85% 0%,rgba(200,164,93,.10),transparent 60%),var(--kohle);overflow:hidden}
+.mat-kopf{display:grid;gap:20px;align-items:end;margin-bottom:clamp(40px,6vw,72px)}
+@media(min-width:960px){.mat-kopf{grid-template-columns:1.25fr 1fr}}
+.mat .d2{font-size:clamp(46px,8.4vw,112px)}
+.mat .lede{max-width:40ch;margin:0}
+.mat-raster{display:grid;gap:16px}
+@media(min-width:960px){.mat-raster{grid-template-columns:1.1fr 1fr;gap:20px}}
+.mat-bild{position:relative;margin:0;border-radius:18px;overflow:hidden;min-height:420px;background:var(--anthrazit)}
+.mat-bild img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.02)}
+.mat-bild::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,14,13,0) 45%,rgba(14,14,13,.88) 100%)}
+.mat-bild figcaption{position:absolute;z-index:2;left:24px;right:24px;bottom:22px;font:500 12px/1.5 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--ahorn)}
+.mat-bild figcaption b{display:block;font:700 clamp(30px,3.6vw,44px)/1 var(--display);letter-spacing:.01em;margin-bottom:8px}
+.mat-karten{display:grid;gap:16px}
+.mat-karte{position:relative;background:var(--anthrazit);border:1px solid var(--linie);border-radius:18px;padding:clamp(26px,3vw,38px);display:grid;gap:14px;align-content:start}
+.mat-karte::before,.mat-karte::after{content:"";position:absolute;left:clamp(26px,3vw,38px);right:clamp(26px,3vw,38px);height:1px;background:var(--ahorn);opacity:.55}
+.mat-karte::before{top:0}.mat-karte::after{top:5px;opacity:.25}
+.mat-icon{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(200,164,93,.45);color:var(--gold-hi);background:rgba(200,164,93,.07)}
+.mat-icon svg{width:26px;height:26px}
+.mat-karte h3{margin:0;font:700 clamp(30px,3.2vw,42px)/.95 var(--display);text-transform:uppercase;letter-spacing:.005em;color:var(--ahorn)}
+.mat-karte h3 em{display:block;font:italic 500 .62em/1.2 var(--serif);text-transform:none;color:var(--gold-hi)}
+.mat-karte p{margin:0;color:var(--ahorn-dim);font-size:16px;line-height:1.6;max-width:46ch}
+.mat-karte p b{color:var(--ahorn);font-weight:500}
+.mat-quelle{font:400 11px/1.5 var(--mono);color:#6f6a60;letter-spacing:.02em}
+.mat-statt{list-style:none;margin:clamp(36px,5vw,56px) 0 0;padding:0;display:grid;border-top:1px solid var(--linie)}
+@media(min-width:760px){.mat-statt{grid-template-columns:repeat(3,1fr)}}
+.mat-statt li{padding:24px 0;border-bottom:1px solid var(--linie);display:grid;gap:6px}
+@media(min-width:760px){.mat-statt li{padding:28px 28px 28px 0;border-bottom:0}.mat-statt li+li{padding-left:28px;border-left:1px solid var(--linie)}}
+.mat-statt b{font:700 clamp(24px,2.4vw,30px)/1 var(--display);text-transform:uppercase;color:var(--ahorn)}
+.mat-statt span{font:500 14px/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ahorn-dim)}
+.mat-statt s{color:#8c867a;text-decoration-color:var(--gold);text-decoration-thickness:1.5px}
+
+/* Hero-Brett wächst beim Scrollen – der Hero bleibt dabei stehen (sticky), erst danach scrollt die Seite weiter */
+.hero-buehne{transform:scale(var(--s,1));transform-origin:50% 40%;will-change:transform}
+.hero-pin.aktiv .hero{position:sticky;top:var(--nav)}
+@media(max-width:699px){.hero-pin.aktiv .hero{min-height:calc(100svh - var(--nav));justify-content:center;padding-bottom:6vh}.hero-pin.aktiv .hero-buehne{margin-top:6vh}}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<!-- Inline-Icons (Plattformen) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 9v6l5.2-3z" fill="currentColor"/></symbol>
+  <symbol id="i-tiktok" viewBox="0 0 24 24"><path d="M14 3v11.2a3.8 3.8 0 1 1-3.8-3.8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M14 3c.4 2.7 2.3 4.6 5 4.9" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+  <symbol id="i-dots" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.8" fill="currentColor"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><circle cx="19" cy="12" r="1.8" fill="currentColor"/></symbol>
+  <symbol id="i-out" viewBox="0 0 16 16"><path d="M5 3h8v8M13 3 3 13" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+  <symbol id="i-left" viewBox="0 0 20 20"><path d="M12.5 4 6.5 10l6 6" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="i-right" viewBox="0 0 20 20"><path d="m7.5 4 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+</svg>
+
+<nav class="nav" aria-label="Hauptnavigation">
+  <div class="wrap">
+    <a href="#top" aria-label="B(R)ETTER Startseite"><img src="web/img/site/logo-bretter.png" alt="B(R)ETTER" width="90" height="18"></a>
+    <ul>
+      <li><a href="#bretter">Bretter</a></li>
+      <li><a href="#kante">Seitenansicht</a></li>
+      <li><a href="#material">Material</a></li>
+      <li><a href="#creator">Creator</a></li>
+    </ul>
+    <a class="btn btn-voll" href="#bretter">Brett wählen</a>
+  </div>
+</nav>
+
+<main id="top">
+
+<!-- 1 · HERO: Zeile, zwei Buttons, das ganze Brett im ersten Bildschirm -->
+<div class="hero-pin" id="heroPin">
+<header class="hero">
+  <h1><span>Kantig. Klar.</span><span>Charakterstark.</span></h1>
+  <p class="hero-zeile">CHOB PRO in Walnuss. Stirnholz, Ahornadern, <b>gefertigt in Deutschland.</b></p>
+  <div class="ctas">
+    <a class="btn btn-voll" href="#bretter">Mehr erfahren</a>
+    <a class="btn btn-linie" href="https://bretter.store/products/chob-pro">Kaufen</a>
+  </div>
+  <div class="hero-buehne">
+    <div class="cut" style="--w:1223;--h:549;--x:89;--y:228">
+      <img src="web/img/produkte/chob-pro-walnuss-stirnholz-schneidebrett.webp" alt="CHOB PRO aus Walnuss-Stirnholz mit zwei hellen Ahornadern" width="1400" height="1000" fetchpriority="high" draggable="false">
+    </div>
+  </div>
+</header>
+</div>
+
+<!-- 2 · VORTEILSLEISTE -->
+<div class="vorteile" aria-label="Deine Vorteile">
+  <ul>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg><span><b>Gefertigt in Deutschland</b><small>Kein Dropshipping</small></span></li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8"/><circle cx="6" cy="18" r="1.6"/><circle cx="18" cy="18" r="1.6"/></svg><span><b>Versand 2–4 Werktage</b><small>kostenlos ab 150 €</small></span></li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.6 2.7-6 6-6s6 2.4 6 6"/><path d="M15.5 4.9a3.2 3.2 0 0 1 0 6.2M17.5 14.4c2.1.7 3.5 2.8 3.5 5.6"/></svg><span><b>Hunderte zufriedene Kunden</b><small>deutschlandweit</small></span></li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7l9-4 9 4v10l-9 4-9-4z"/><path d="M3 7l9 4 9-4M12 11v10"/></svg><span><b>Unikat-Garantie</b><small>jede Maserung einzigartig</small></span></li>
+  </ul>
+</div>
+
+<!-- 3 · DREI BRETTER: Karten mit Holzwahl, Fläche und Dicke -->
+<section class="sektion" id="bretter" aria-labelledby="bretter-h" style="padding-top:clamp(48px,6vw,88px)">
+  <div class="wrap">
+    <div class="kopf kopf-zeile">
+      <h2 class="d3" id="bretter-h">Drei Bretter. <em>Eine Liga.</em></h2>
+    </div>
+    <div class="spur" id="spur" tabindex="0" role="region" aria-roledescription="Karussell" aria-label="CHOB Modelle"></div>
+    <div class="steuer bretter-steuer">
+      <div class="dots" id="dots" aria-label="Brett auswählen"></div>
+      <span class="wisch" aria-hidden="true"><span class="nur-touch">Wischen zum Wechseln</span><span class="nur-maus">Ziehen oder Pfeile</span></span>
+      <div class="pfeile">
+        <button type="button" id="zurueck" aria-label="Vorheriges Brett"><svg width="18" height="18"><use href="#i-left"/></svg></button>
+        <button type="button" id="weiter" aria-label="Nächstes Brett"><svg width="18" height="18"><use href="#i-right"/></svg></button>
+      </div>
+    </div>
+    <p class="bretter-fuss">Fläche und Höhe maßstabsgetreu. Gestrichelt: das größte Maß der Kollektion.</p>
+  </div>
+</section>
+
+<!-- 4 · SEITENANSICHT -->
+<section class="sektion kante-sek" id="kante" aria-labelledby="kante-h">
+  <div class="wrap">
+    <p class="eyebrow">Seitenansicht · Hard Edge</p>
+    <h2 class="d2" id="kante-h">Die Kante<br><em>sagt alles.</em></h2>
+    <p class="lede">Scharfe Kanten, keine Schnörkel. Von der Seite siehst du, was du bekommst: <b>5 cm Stirnholz</b> oder <b>2 cm</b> für jeden Tag.</p>
+    <div class="kanten">
+      <div class="kante zeigen">
+        <div class="kante-text"><b>CHOB PRO</b><span><strong>5 cm</strong> · Stirnholz</span></div>
+        <div class="kante-bild" style="--anteil:100%"><div class="cut" style="--w:1719;--h:201;--x:143;--y:464"><img loading="lazy" src="web/img/site/2-e9388650-7350-43c9-a1aa-617fa9d7c483.webp" alt="Seitenansicht CHOB PRO aus Walnuss, 5 cm hoch" width="2000" height="1125" style="width:calc(2000 / var(--w) * 100%)"></div></div>
+      </div>
+      <div class="kante zeigen">
+        <div class="kante-text"><b>CHOB SOLID</b><span><strong>2 cm</strong> · Massivholz</span></div>
+        <div class="kante-bild" style="--anteil:73.3%"><div class="cut" style="--w:1378;--h:82;--x:312;--y:523"><img loading="lazy" src="web/img/site/6-819007a5-82ee-495f-9660-0bf7abae082a.webp" alt="Seitenansicht CHOB SOLID aus Walnuss, 2 cm hoch, mit zwei Ahornadern" width="2000" height="1125" style="width:calc(2000 / var(--w) * 100%)"></div></div>
+      </div>
+      <div class="kante zeigen">
+        <div class="kante-text"><b>CHOB LITE</b><span><strong>2 cm</strong> · Stirnholz</span></div>
+        <div class="kante-bild" style="--anteil:44.4%"><div class="cut" style="--w:991;--h:106;--x:503;--y:508"><img loading="lazy" src="web/img/site/6-d4831164-e3be-4561-9e69-890ac3e4fdc3.webp" alt="Seitenansicht CHOB LITE aus Walnuss, 2 cm hoch, mit zwei Ahornadern" width="2000" height="1125" style="width:calc(2000 / var(--w) * 100%)"></div></div>
+      </div>
+    </div>
+    <p class="kanten-fuss">Alle drei Kanten im selben Maßstab: PRO von der langen Seite (45 cm), SOLID und LITE von der Stirnseite (33 und 20 cm).</p>
+  </div>
+</section>
+
+<!-- 4b · MATERIAL: antibakteriell + ohne Mikroplastik -->
+<section class="mat" id="material" aria-labelledby="mat-h">
+  <div class="wrap">
+    <div class="mat-kopf">
+      <div>
+        <p class="eyebrow">Material · Was in dein Essen kommt</p>
+        <h2 class="d2" id="mat-h">Antibakteriell.<br><em>Ohne Mikroplastik.</em></h2>
+      </div>
+      <p class="lede">Was auf dem Brett liegt, landet im Essen. Deshalb schneidest du bei uns auf <b>massivem Holz</b> – nicht auf Kunststoff.</p>
+    </div>
+    <div class="mat-raster">
+      <figure class="mat-bild zeigen">
+        <img loading="lazy" src="web/img/produkte/schneiden-mit-chob-solid-walnuss-profi-schneidebrett.webp" alt="Paprika wird auf einem CHOB SOLID aus Walnuss geschnitten" width="1400" height="1000">
+        <figcaption><b>Nur Holz.</b>Eiche · Walnuss · Ahorn</figcaption>
+      </figure>
+      <div class="mat-karten">
+        <article class="mat-karte zeigen">
+          <span class="mat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5.5c0 4.4 3 8.2 7 9.5 4-1.3 7-5.1 7-9.5V6z"/><path d="M9.2 13.6c.2-2.8 2-4.6 5.6-4.9-.2 3.6-2.1 5.4-4.9 5.6"/><path d="M9.2 13.6 8 15"/></svg></span>
+          <h3>Antibakteriell<em>– von Natur aus.</em></h3>
+          <p>Eiche und Walnuss enthalten <b>natürliche Gerbsäure</b>. Sie wirkt antibakteriell – ohne Chemie, ohne Beschichtung. Und weil sich Schnitte im Stirnholz wieder schließen, entstehen kaum tiefe Rillen.</p>
+        </article>
+        <article class="mat-karte zeigen">
+          <span class="mat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="9" r="1.6"/><circle cx="14.5" cy="7" r="1.1"/><circle cx="15" cy="14" r="1.8"/><circle cx="9" cy="16" r="1.1"/><path d="M4 20 20 4"/></svg></span>
+          <h3>Kein Mikroplastik<em>– auch nicht nach Jahren.</em></h3>
+          <p>Kunststoffbretter verlieren mit jedem Schnitt winzige Partikel, die mit ins Essen gelangen können. Ein CHOB ist aus <b>massivem Holz</b> – da ist kein Plastik, das sich abschneiden lässt.</p>
+          <p class="mat-quelle">Studie: Yadav et al., „Cutting Boards: An Overlooked Source of Microplastics in Human Food?“, Environmental Science &amp; Technology, 2023.</p>
+        </article>
+      </div>
+    </div>
+    <ul class="mat-statt">
+      <li class="zeigen"><b>Massivholz</b><span>statt <s>Kunststoff</s></span></li>
+      <li class="zeigen"><b>Gerbsäure</b><span>statt <s>Chemie</s></span></li>
+      <li class="zeigen"><b>Leinöl &amp; Bienenwachs</b><span>statt <s>Beschichtung</s></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5 · CREATOR-HERO (aus 02) -->
+<section class="c-hero" id="creator" aria-labelledby="reach-h">
+  <div class="c-hero-bg" aria-hidden="true">
+    <picture>
+      <source media="(min-width:900px)" srcset="web/img/site/hero-desktop-steak.webp">
+      <img src="web/img/site/hero-mobile-steak.webp" alt="" width="2000" height="1429" loading="lazy">
+    </picture>
+  </div>
+  <div class="wrap">
+    <div class="stories" id="stories" aria-label="Creator, die mit B(R)ETTER kochen"></div>
+    <h2 class="reach" id="reach-h">
+      <span id="reachZahl" hidden>
+        <span class="ueber" id="reachUeber">über</span>
+        <span class="gross" aria-hidden="true"><span class="odo" id="odo"></span><span class="einheit" id="reachEinheit"></span></span>
+        <span class="sr" id="reachText"></span>
+      </span>
+      <span class="zeile" id="reachZeile">Die kochen<br><span class="dim">mit B(R)ETTER.</span></span>
+    </h2>
+    <p class="fein" id="reachFein" hidden>Instagram, YouTube und TikTok zusammengerechnet. Wer mehreren Kanälen folgt, zählt mehrfach.</p>
+    <div class="adern" aria-hidden="true"><i></i><i></i></div>
+    <p class="lede">Food-Creator zeigen ihre Küchen – und darin liegt ein CHOB. Kein Sponsoring-Requisit, sondern ein Werkzeug, das jeden Tag schneidet.</p>
+    <div class="ctas">
+      <a class="btn btn-voll" href="#creator-wand">Die Creator ansehen</a>
+      <a class="btn btn-linie" href="#bretter">Brett wählen</a>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · CREATOR-WAND (aus 02) -->
+<section class="sektion" id="creator-wand" aria-labelledby="wand-h" style="padding-top:clamp(40px,6vw,72px)">
+  <div class="wrap">
+    <div class="kopf">
+      <p class="eyebrow">Creator · nach Reichweite</p>
+      <h2 class="d2" id="wand-h">Die kochen<br><em>damit.</em></h2>
+      <p class="lede" id="wandHinweis">Tipp auf eine Karte: Du landest direkt auf dem Kanal. Die drei Punkte zeigen alle Links.</p>
+    </div>
+    <div class="wand" id="wand"></div>
+    <div class="steuer wand-steuer">
+      <span class="wisch" aria-hidden="true"><span class="nur-touch">Wischen für mehr</span><span class="nur-maus">Ziehen oder Pfeile</span></span>
+      <div class="pfeile">
+        <button type="button" data-richtung="-1" aria-label="Creator zurück"><svg width="18" height="18"><use href="#i-left"/></svg></button>
+        <button type="button" data-richtung="1" aria-label="Weitere Creator"><svg width="18" height="18"><use href="#i-right"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="fuss">
+  <div class="wrap">
+    <img src="web/img/site/logo-bretter.png" alt="B(R)ETTER" width="80" height="16" loading="lazy">
+    <span>Gefertigt in Deutschland · Designed in Berlin · <a href="https://www.instagram.com/bretterberlin/">@bretterberlin</a></span>
+  </div>
+</footer>
+
+<!-- Creator-Sheet -->
+<dialog class="sheet" id="sheet" aria-labelledby="sheetTitel">
+  <div class="sheet-in">
+    <div class="griff" aria-hidden="true"></div>
+    <div class="sheet-kopf">
+      <span class="ring" id="sheetAv"></span>
+      <div><h3 id="sheetTitel"></h3><p id="sheetSub"></p></div>
+      <button class="sheet-zu" type="button" id="sheetZu" aria-label="Schließen">×</button>
+    </div>
+    <ul class="sheet-links" id="sheetLinks"></ul>
+    <p class="notiz">Das Brett aus den Videos? <a href="#bretter" id="sheetZuBrettern">Alle drei Modelle ansehen</a></p>
+  </div>
+</dialog>
+
+<script src="web/daten/creator.js"></script>
+<script>
+(function(){
+"use strict";
+var IMG = "web/img/";
+var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];}); }
+var de0 = new Intl.NumberFormat("de-DE",{maximumFractionDigits:0});
+var de1 = new Intl.NumberFormat("de-DE",{maximumFractionDigits:1});
+var euro = function(n){ return de0.format(n) + " €"; };
+
+/* ── Produktdaten (aus dem Shop) ─────────────────────────
+   crop = Kontur des Bretts im 1400×1000-Freisteller → alle Bretter gleich breit auf der Bühne */
+var MODELLE = [
+  { id:"pro", name:"CHOB PRO", rolle:"Die Spitzenklasse", tri:"Groß. Schwer. Unverhandelbar Premium.",
+    bau:"Stirnholz/Hirnholz mit Ahornadern", l:45, b:33, h:5, satz:"Rutschfest durch Eigengewicht.",
+    preis:{eiche:439, walnuss:459}, url:"https://bretter.store/products/chob-pro",
+    img:{ eiche:["produkte/chob-pro-eiche-stirnholz-schneidebrett.webp",89,225,1313,777], walnuss:["produkte/chob-pro-walnuss-stirnholz-schneidebrett.webp",89,228,1312,777] } },
+  { id:"solid", name:"CHOB SOLID", rolle:"Der Allrounder", tri:"Robust. Präzise. Ehrlich Premium.",
+    bau:"Massives Langholz, zwei Ahornadern", l:45, b:33, h:2, satz:"Dieselbe Fläche wie PRO, schlanker.",
+    preis:{eiche:239, walnuss:279}, url:"https://bretter.store/products/chob-solid",
+    img:{ eiche:["produkte/chob-solid-eiche-massivholz-schneidebrett.webp",98,249,1306,747], walnuss:["produkte/chob-solid-walnuss-massivholz-schneidebrett.webp",100,248,1309,745] } },
+  { id:"lite", name:"CHOB LITE", rolle:"Das Everyday", tri:"Kompakt. Stark. Unmissverständlich Premium.",
+    bau:"Stirnholz/Hirnholz mit Ahornadern", l:30, b:20, h:2, satz:"Kein kleiner Bruder, sondern dieselbe Liga in kleinerem Format. Etwa so groß wie ein A4-Blatt.",
+    preis:{eiche:129, walnuss:149}, url:"https://bretter.store/products/chob-lite",
+    img:{ eiche:["produkte/chob-lite-eiche-stirnholz-schneidebrett.webp",359,348,1053,649], walnuss:["produkte/chob-lite-walnuss-stirnholz-schneidebrett.webp",361,347,1054,652] } }
+];
+var MAX = { l:45, b:33, h:5 };
+var HOLZ = { eiche:{label:"Eiche", farbe:"#c99a5f"}, walnuss:{label:"Walnuss", farbe:"#5d3b26"} };
+var wahl = { pro:"walnuss", solid:"walnuss", lite:"walnuss" };
+
+function cut(m, h){
+  var d = m.img[h];
+  return '<div class="cut" style="--w:'+(d[3]-d[1])+';--h:'+(d[4]-d[2])+';--x:'+d[1]+';--y:'+d[2]+'"><img src="'+IMG+d[0]+'" alt="'+m.name+' aus '+HOLZ[h].label+'" width="1400" height="1000" loading="lazy" draggable="false"></div>';
+}
+function pct(a, b){ return (a / b * 100).toFixed(2) + "%"; }
+
+function karte(m, i){
+  var h = wahl[m.id], kleiner = m.l < MAX.l || m.b < MAX.b, flacher = m.h < MAX.h;
+  return '<article class="brett" data-m="'+m.id+'" aria-roledescription="Folie" aria-label="'+(i+1)+' von 3: '+m.name+'">' +
+    '<div class="kopfzeile"><h3>'+m.name+'</h3><span class="rolle">'+m.rolle+'</span></div>' +
+    '<div class="stage">'+cut(m, h)+'</div>' +
+    '<p class="tri">'+m.tri+'</p>' +
+    '<div class="groesse">' +
+      '<div><p class="g-label">Fläche</p><div class="flaeche">' +
+        '<div class="fp" aria-hidden="true">'+(kleiner ? '<span class="ref"></span>' : '')+'<span class="ist" style="width:'+pct(m.l,MAX.l)+';height:'+pct(m.b,MAX.b)+'"></span></div>' +
+        '<div><span class="zahl">'+m.l+' × '+m.b+' × '+m.h+' cm</span><small>'+m.satz+'</small></div>' +
+      '</div></div>' +
+      '<div><p class="g-label">Höhe · Seitenansicht</p><div class="dicke">' +
+        '<div class="seite" role="img" aria-label="'+m.name+' ist '+m.h+' Zentimeter hoch'+(flacher?', CHOB PRO zum Vergleich 5 Zentimeter':'')+'">' +
+          (flacher ? '<span class="ref"></span>' : '') +
+          '<span class="ist" data-holz="'+h+'" data-seite="'+m.id+'" style="width:'+pct(m.l,MAX.l)+';height:'+pct(m.h,MAX.h)+'"></span></div>' +
+        '<span class="h">'+m.h+' cm<small>hoch</small></span>' +
+        '<p class="dicke-hinweis"'+(flacher?'':' style="visibility:hidden" aria-hidden="true"')+'><i></i>CHOB PRO, 5 cm</p>' +
+      '</div></div>' +
+    '</div>' +
+    '<div class="holz" role="group" aria-label="Holz für '+m.name+'">' +
+      Object.keys(HOLZ).map(function(k){
+        return '<button type="button" data-holz="'+k+'" style="--c:'+HOLZ[k].farbe+'" aria-pressed="'+(h===k)+'" aria-label="'+HOLZ[k].label+'"></button>';
+      }).join("") + '<span class="holzname">'+HOLZ[h].label+'</span></div>' +
+    '<p class="bau">'+m.l+' × '+m.b+' × '+m.h+' cm · '+m.bau+'</p>' +
+    '<p class="preis" aria-live="polite"><span>'+euro(m.preis[h])+'</span><small>inkl. MwSt.</small></p>' +
+    '<a class="btn btn-voll" href="'+m.url+'">In den Warenkorb</a>' +
+  '</article>';
+}
+
+var spur = document.getElementById("spur");
+spur.innerHTML = MODELLE.map(karte).join("");
+
+/* Holzwahl: Bild, Preis, Holzfarbe in der Seitenansicht live tauschen */
+spur.addEventListener("click", function(e){
+  var b = e.target.closest(".holz button"); if(!b) return;
+  var art = b.closest(".brett"), id = art.dataset.m, h = b.dataset.holz;
+  var m = MODELLE.filter(function(x){ return x.id===id; })[0];
+  if(wahl[id]===h) return; wahl[id] = h;
+  art.querySelectorAll(".holz button").forEach(function(x){ x.setAttribute("aria-pressed", x===b); });
+  art.querySelector(".holzname").textContent = HOLZ[h].label;
+  art.querySelector(".preis span").textContent = euro(m.preis[h]);
+  art.querySelector(".seite .ist").setAttribute("data-holz", h);
+  var stage = art.querySelector(".stage"), alt = stage.querySelector("img");
+  var neu = new Image(); neu.src = IMG + m.img[h][0];
+  var tausch = function(){ stage.innerHTML = cut(m, h); };
+  if(reduce){ tausch(); return; }
+  alt.classList.add("weg");
+  (neu.decode ? neu.decode() : Promise.resolve()).catch(function(){}).then(function(){ setTimeout(tausch, 160); });
+});
+
+/* ── Karussell (nur wenn scrollbar): Swipe nativ, Maus-Drag, Pfeile, Tastatur, Punkte ── */
+function karussell(track, opts){
+  var items = Array.prototype.slice.call(track.children);
+  var dots = opts.dots, prev = opts.prev, next = opts.next, akt = 0;
+  if(dots){
+    dots.innerHTML = items.map(function(el,i){ return '<button type="button" aria-label="'+esc(opts.label(i))+'" data-i="'+i+'"><span></span></button>'; }).join("");
+    dots.addEventListener("click", function(e){ var b = e.target.closest("button"); if(b) geh(+b.dataset.i); });
+  }
+  function pos(i){
+    var el = items[i], pad = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+    return /center/.test(getComputedStyle(el).scrollSnapAlign) ? el.offsetLeft + el.offsetWidth/2 - track.clientWidth/2 : el.offsetLeft - pad;
+  }
+  function geh(i){ i = Math.max(0, Math.min(items.length-1, i)); track.scrollTo({ left: pos(i), behavior: reduce ? "auto" : "smooth" }); }
+  function aktuell(){
+    var mitte = track.scrollLeft + track.clientWidth/2, best = 0, bd = 1e9;
+    items.forEach(function(el,i){ var c = el.offsetLeft + el.offsetWidth/2, d = Math.abs(c - mitte); if(d < bd){ bd = d; best = i; } });
+    if(track.scrollLeft <= 2) best = 0;
+    if(track.scrollLeft >= track.scrollWidth - track.clientWidth - 2) best = items.length - 1;
+    return best;
+  }
+  function sync(){
+    akt = aktuell();
+    if(dots) Array.prototype.forEach.call(dots.children, function(d,j){ d.setAttribute("aria-current", j===akt); });
+    if(prev) prev.disabled = track.scrollLeft <= 2;
+    if(next) next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+  }
+  var raf = null;
+  track.addEventListener("scroll", function(){ if(raf) return; raf = requestAnimationFrame(function(){ raf = null; sync(); }); }, {passive:true});
+  if(prev) prev.addEventListener("click", function(){ geh(akt-1); });
+  if(next) next.addEventListener("click", function(){ geh(akt+1); });
+  track.addEventListener("keydown", function(e){
+    if(e.target !== track) return;
+    if(e.key==="ArrowRight"){ e.preventDefault(); geh(akt+1); }
+    if(e.key==="ArrowLeft"){ e.preventDefault(); geh(akt-1); }
+  });
+  /* Maus-Drag am Laptop (Touch nutzt natives Scrollen + scroll-snap) */
+  var drag = null;
+  track.addEventListener("pointerdown", function(e){
+    if(e.pointerType!=="mouse" || e.button!==0 || e.target.closest("button,a") || track.scrollWidth <= track.clientWidth + 2) return;
+    drag = { x:e.clientX, s:track.scrollLeft, moved:false, start:akt };
+  });
+  window.addEventListener("pointermove", function(e){
+    if(!drag) return; var dx = e.clientX - drag.x;
+    if(!drag.moved && Math.abs(dx) > 5){ drag.moved = true; track.classList.add("zieht"); }
+    if(drag.moved) track.scrollLeft = drag.s - dx;
+  });
+  window.addEventListener("pointerup", function(e){
+    if(!drag) return; var d = drag; drag = null; if(!d.moved) return;
+    track.classList.remove("zieht");
+    var dx = e.clientX - d.x;
+    geh(Math.abs(dx) > 50 ? d.start + (dx < 0 ? 1 : -1) : d.start);
+  });
+  track.addEventListener("dragstart", function(e){ e.preventDefault(); });
+  window.addEventListener("resize", sync);
+  sync();
+  return { geh:geh };
+}
+karussell(spur, { dots:document.getElementById("dots"), prev:document.getElementById("zurueck"), next:document.getElementById("weiter"),
+  label:function(i){ return MODELLE[i].name; } });
+
+/* ── Creator aus window.CREATORS ─────────────────────── */
+var PLATTFORMEN = [ {key:"instagram",label:"Instagram"}, {key:"youtube",label:"YouTube"}, {key:"tiktok",label:"TikTok"} ];
+function num(v){ return (typeof v==="number" && isFinite(v) && v>0) ? v : 0; }
+function sicherUrl(u){ return (typeof u==="string" && /^https:\/\//i.test(u)) ? u : null; }
+function kompakt(n){
+  n = num(n);
+  if(n >= 1e6) return de1.format(Math.round(n/1e5)/10) + " Mio.";
+  if(n >= 1e3) return de0.format(Math.round(n/1e3)) + " Tsd.";
+  return de0.format(n);
+}
+function icon(k, s){ return '<svg width="'+(s||16)+'" height="'+(s||16)+'" aria-hidden="true"><use href="#i-'+k+'"/></svg>'; }
+
+var roh = Array.isArray(window.CREATORS) ? window.CREATORS : [];
+var creators = roh.filter(function(c){ return c && c.anzeige; }).map(function(c, i){
+  var pl = PLATTFORMEN.map(function(p){
+    var d = c[p.key] || {};
+    return { key:p.key, label:p.label, handle:d.handle || null, url:sicherUrl(d.url), n:num(d.follower) };
+  }).filter(function(p){ return p.n > 0 && p.url; });
+  var total = pl.reduce(function(s,p){ return s + p.n; }, 0);
+  pl.sort(function(a,b){ return b.n - a.n; });
+  var haupt = sicherUrl(c.hauptlink) || (pl[0] && pl[0].url) || null, hauptP = null;
+  pl.forEach(function(p){ if(p.url === haupt) hauptP = p; });
+  return { anzeige:c.anzeige, name:c.name || null, beschreibung:c.beschreibung || "", bild:c.bild || null,
+           pl:pl, total:total, haupt:haupt, hauptP:hauptP, order:i };
+});
+creators.sort(function(a,b){ return (b.total - a.total) || (a.order - b.order); });
+var summe = creators.reduce(function(s,c){ return s + c.total; }, 0);
+
+function avatar(c, eager){
+  var ini = c.anzeige.split(/\s+/).map(function(w){ return w[0]; }).join("").slice(0,2).toUpperCase();
+  if(!c.bild) return '<span class="ini">'+esc(ini)+'</span>';
+  return '<img src="'+IMG+'creator/'+esc(c.bild)+'" alt="" width="600" height="600" '+'decoding="async" onerror="this.outerHTML=\'<span class=&quot;ini&quot;>'+esc(ini)+'</span>\'">';
+}
+
+/* Creator-Hero: Zahl + Story-Leiste */
+var nC = creators.length;
+if(!nC){ document.getElementById("creator").hidden = true; document.getElementById("creator-wand").hidden = true; }
+var zeile = document.getElementById("reachZeile"), odoRoll = null;
+if(summe > 0){
+  var einheit, ganz, exakt;
+  if(summe >= 1e6){ ganz = Math.floor(summe/1e6); einheit = "Mio."; exakt = summe % 1e6 === 0; }
+  else if(summe >= 1e3){ ganz = Math.floor(summe/1e3); einheit = "Tsd."; exakt = summe % 1e3 === 0; }
+  else { ganz = summe; einheit = ""; exakt = true; }
+  var label = de0.format(ganz);
+  document.getElementById("reachUeber").hidden = exakt;
+  document.getElementById("reachEinheit").textContent = einheit;
+  document.getElementById("reachText").textContent = (exakt ? "" : "Über ") + label + " " + einheit + " Follower. " + nC + " Creator. 3 Bretter.";
+  document.getElementById("reachZahl").hidden = false;
+  document.getElementById("reachFein").hidden = false;
+  zeile.setAttribute("aria-hidden","true");
+  zeile.innerHTML = 'Follower.<br><span class="dim">' + nC + ' Creator. 3 Bretter.</span>';
+  odoRoll = baueOdo(label);
+} else if(nC > 0){
+  zeile.innerHTML = nC + ' Creator.<br><span class="dim">3 Bretter.</span>';
+}
+function baueOdo(text){
+  var odo = document.getElementById("odo"), cols = [];
+  text.split("").forEach(function(ch){
+    if(/\d/.test(ch)){
+      var col = document.createElement("span"); col.className = "col";
+      var h = ""; for(var d=0; d<=9; d++) h += "<span>"+d+"</span>";
+      col.innerHTML = h; col.dataset.d = ch; odo.appendChild(col); cols.push(col);
+    } else { var s = document.createElement("span"); s.textContent = ch; odo.appendChild(s); }
+  });
+  return function(){ cols.forEach(function(col,i){ col.style.transitionDelay = (i*90)+"ms"; col.style.transform = "translateY(-"+(parseInt(col.dataset.d,10)*1.12)+"em)"; }); };
+}
+if(odoRoll){
+  if(reduce || !("IntersectionObserver" in window)) odoRoll();
+  else {
+    var oio = new IntersectionObserver(function(es){ if(es[0].isIntersecting){ setTimeout(odoRoll, 150); oio.disconnect(); } }, { threshold:.4 });
+    oio.observe(document.getElementById("odo"));
+  }
+}
+var stories = document.getElementById("stories");
+creators.forEach(function(c){
+  var b = document.createElement("button");
+  b.type = "button"; b.className = "story";
+  b.setAttribute("aria-label", c.anzeige + ": alle Kanäle anzeigen");
+  b.innerHTML = '<span class="ring">'+avatar(c)+'</span><span class="lbl">'+esc(c.anzeige)+'</span>';
+  b.addEventListener("click", function(){ oeffneSheet(c); });
+  stories.appendChild(b);
+});
+
+/* Creator-Wand */
+var wand = document.getElementById("wand");
+creators.forEach(function(c){
+  var art = document.createElement("article"); art.className = "ck";
+  var chips = c.pl.map(function(p){
+    return '<a class="chip" href="'+esc(p.url)+'" target="_blank" rel="noopener" aria-label="'+esc(c.anzeige)+' auf '+p.label+', '+kompakt(p.n)+' Follower">'+icon(p.key)+kompakt(p.n)+'</a>';
+  }).join("");
+  var titel = c.haupt ? '<a class="haupt" href="'+esc(c.haupt)+'" target="_blank" rel="noopener">'+esc(c.anzeige)+'<span class="sr">, '+(c.hauptP ? "auf "+c.hauptP.label+" öffnen" : "Kanal öffnen")+'</span></a>' : esc(c.anzeige);
+  var sub = [c.name && c.name !== c.anzeige ? c.name : null, c.hauptP && c.hauptP.handle ? c.hauptP.handle : null].filter(Boolean).join(" · ");
+  art.innerHTML =
+    '<div class="pic ring">'+avatar(c)+'</div>' +
+    '<h3>'+titel+'</h3>' +
+    (sub ? '<p class="wer">'+esc(sub)+'</p>' : '') +
+    (c.beschreibung ? '<p class="desc">'+esc(c.beschreibung)+'</p>' : '') +
+    (chips ? '<div class="chips">'+chips+'</div>' : '') +
+    (c.total > 0 ? '<div class="summe"><small>Follower gesamt</small><b>'+kompakt(c.total)+'</b></div>' : '') +
+    '<button type="button" class="mehr" aria-label="Alle Links von '+esc(c.anzeige)+'">'+icon("dots",22)+'</button>';
+  art.querySelector(".mehr").addEventListener("click", function(){ oeffneSheet(c); });
+  wand.appendChild(art);
+});
+if(!creators.some(function(c){ return c.haupt; })) document.getElementById("wandHinweis").hidden = true;
+var wandK = nC ? karussell(wand, {}) : null;
+document.querySelectorAll(".wand-steuer button").forEach(function(b){
+  b.addEventListener("click", function(){
+    var k = wand.querySelector(".ck");
+    wand.scrollBy({ left:(+b.dataset.richtung) * (k ? k.offsetWidth + 12 : 300), behavior: reduce ? "auto" : "smooth" });
+  });
+});
+
+/* Bottom-Sheet */
+var sheet = document.getElementById("sheet");
+function oeffneSheet(c){
+  document.getElementById("sheetAv").innerHTML = avatar(c, true);
+  document.getElementById("sheetTitel").textContent = c.anzeige;
+  document.getElementById("sheetSub").textContent = [c.name && c.name !== c.anzeige ? c.name : null, c.total > 0 ? kompakt(c.total)+" Follower" : null].filter(Boolean).join(" · ");
+  document.getElementById("sheetLinks").innerHTML = c.pl.length ? c.pl.map(function(p){
+    return '<li><a href="'+esc(p.url)+'" target="_blank" rel="noopener">'+icon(p.key,22)+'<span><span class="p">'+p.label+'</span><span class="hd">'+esc(p.handle||"")+'</span></span><span class="n">'+kompakt(p.n)+'</span>'+icon("out",14)+'</a></li>';
+  }).join("") : '<li style="padding:16px 0;color:var(--ahorn-dim)">Die Kanäle werden gerade ergänzt.</li>';
+  if(typeof sheet.showModal === "function") sheet.showModal(); else sheet.setAttribute("open","");
+}
+function schliesseSheet(){ if(sheet.open){ if(sheet.close) sheet.close(); else sheet.removeAttribute("open"); } }
+document.getElementById("sheetZu").addEventListener("click", schliesseSheet);
+document.getElementById("sheetZuBrettern").addEventListener("click", schliesseSheet);
+sheet.addEventListener("click", function(e){ if(e.target === sheet) schliesseSheet(); });
+(function(){ /* nach unten wischen schließt */
+  var y0 = null;
+  sheet.addEventListener("touchstart", function(e){ if(sheet.scrollTop <= 0) y0 = e.touches[0].clientY; }, {passive:true});
+  sheet.addEventListener("touchmove", function(e){ if(y0===null) return; var dy = e.touches[0].clientY - y0; if(dy > 0) sheet.style.transform = "translateY("+dy+"px)"; }, {passive:true});
+  sheet.addEventListener("touchend", function(e){ if(y0===null) return; var dy = e.changedTouches[0].clientY - y0; y0 = null; sheet.style.transform = ""; if(dy > 90) schliesseSheet(); });
+})();
+
+/* ── Reveal + Video nur im Viewport ──────────────────── */
+if("IntersectionObserver" in window){
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("da"); io.unobserve(e.target); } });
+  }, { rootMargin:"0px 0px -8% 0px" });
+  document.querySelectorAll(".zeigen").forEach(function(el){ io.observe(el); });
+} else {
+  document.querySelectorAll(".zeigen").forEach(function(el){ el.classList.add("da"); });
+}
+})();
+</script>
+<script>
+(function(){
+  var b=document.querySelector('.hero-buehne'), pin=document.getElementById('heroPin'), hero=pin&&pin.querySelector('.hero');
+  if(!b||!pin) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  pin.classList.add('aktiv');
+  var start, weg, ticking=false;
+  function ease(t){ return 1-Math.pow(1-t,3); }
+  function mass(){
+    start = innerWidth < 700 ? .8 : .68;
+    weg = Math.round(innerHeight * .9);          /* so viel Scrollweg bleibt der erste Bildschirm stehen */
+    pin.style.height = (hero.offsetHeight + weg) + 'px';
+    setze();
+  }
+  function setze(){
+    ticking=false;
+    var nav = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav')) || 54;
+    var y = scrollY - (pin.offsetTop - nav);
+    var p = Math.min(1, Math.max(0, y / (weg * .75)));  /* letztes Viertel: Brett steht in voller Größe, dann geht es weiter */
+    b.style.setProperty('--s', (start+(1-start)*ease(p)).toFixed(4));
+  }
+  addEventListener('scroll', setze, {passive:true});
+  addEventListener('resize', mass);
+  addEventListener('load', mass);
+  mass();
+})();
+</script>
+</body>
+</html>
