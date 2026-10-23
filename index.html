@@ -451,6 +451,15 @@ footer.fuss img{height:16px;width:auto;opacity:.8}
 /* iPhone: horizontale Karussells sollen senkrechtes Wischen nicht abfangen */
 .spur,.wand,.stories{touch-action:pan-x pan-y;overscroll-behavior-x:contain}
 @media (hover:none){.spur,.wand{scroll-snap-type:x proximity}}
+
+/* Höhe · Seitenansicht: echte Holzkante statt Farbverlauf (Ausschnitt der Vorderkante aus dem jeweiligen Produktfoto) */
+.seite .ist{background-size:100% 100%!important;background-repeat:no-repeat!important;box-shadow:inset 0 1px 0 rgba(239,228,204,.25),0 6px 12px rgba(0,0,0,.45)}
+.seite .ist[data-seite="pro"][data-holz="walnuss"]{background-image:url(web/img/kanten/kante-pro-walnuss.webp)}
+.seite .ist[data-seite="pro"][data-holz="eiche"]{background-image:url(web/img/kanten/kante-pro-eiche.webp)}
+.seite .ist[data-seite="solid"][data-holz="walnuss"]{background-image:url(web/img/kanten/kante-solid-walnuss.webp)}
+.seite .ist[data-seite="solid"][data-holz="eiche"]{background-image:url(web/img/kanten/kante-solid-eiche.webp)}
+.seite .ist[data-seite="lite"][data-holz="walnuss"]{background-image:url(web/img/kanten/kante-lite-walnuss.webp)}
+.seite .ist[data-seite="lite"][data-holz="eiche"]{background-image:url(web/img/kanten/kante-lite-eiche.webp)}
 </style>
 </head>
 <body>
