@@ -141,7 +141,7 @@ mark.todo{background:#5b4a1f;color:#ffe3a3;padding:0 .3em;border-radius:3px;font
 @media(min-width:700px){.spur{grid-auto-columns:56%}.spur>*{scroll-snap-align:start}}
 @media(min-width:1100px){.spur{grid-auto-flow:row;grid-template-columns:repeat(3,1fr);overflow:visible;margin:0;padding:0;gap:0 20px;cursor:auto}
   /* gleiche Zeilen in allen drei Karten: Preis und Button stehen auf einer Linie */
-  @supports (grid-template-rows:subgrid){.spur .brett{display:grid;grid-template-columns:minmax(0,1fr);grid-row:span 8;grid-template-rows:subgrid;row-gap:0}.spur .brett .preis{align-self:end}}}
+  @supports (grid-template-rows:subgrid){.spur .brett{display:grid;grid-template-columns:minmax(0,1fr);grid-row:span 9;grid-template-rows:subgrid;row-gap:0}.spur .brett .preis{align-self:end}}}
 
 .brett{background:var(--anthrazit);border:1px solid var(--linie);border-radius:6px;padding:20px;display:flex;flex-direction:column;min-width:0}
 .brett .kopfzeile{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
@@ -185,6 +185,16 @@ mark.todo{background:#5b4a1f;color:#ffe3a3;padding:0 .3em;border-radius:3px;font
 .brett .preis{font:700 34px/1 var(--display);letter-spacing:.02em;margin:18px 0 16px}
 .brett .preis small{font:400 13px var(--text);color:var(--ahorn-dim);letter-spacing:0;margin-left:8px}
 .brett .btn{width:100%}
+/* Karte → Produktdetailseite (dezent: Rahmen Gold, Bild minimal größer) */
+.brett{transition:border-color .25s}
+.brett .stage,.brett .kopfzeile,.brett .tri{cursor:pointer}
+.brett h3 a{color:inherit;text-decoration:none}
+.brett .stage .cut{transition:transform .5s var(--ease)}
+.brett:has(.stage:hover,.kopfzeile:hover,.tri:hover,.details:hover){border-color:var(--gold)}
+.brett:has(.stage:hover,.kopfzeile:hover,.tri:hover,.details:hover) .stage .cut{transform:scale(1.03)}
+.brett:has(.pdp:focus-visible) {border-color:var(--gold)}
+.brett .details{display:block;margin-top:12px;text-align:center;font:400 13px/1.4 var(--mono);letter-spacing:.04em;color:var(--ahorn-dim);text-decoration:none;padding:4px 0}
+.brett .details:hover{color:var(--ahorn)}
 .brett .preis{margin-top:auto;padding-top:18px}
 
 .steuer{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px}
@@ -498,7 +508,7 @@ footer.fuss img{height:16px;width:auto;opacity:.8}
   <p class="hero-zeile">CHOB PRO in Walnuss. Stirnholz, Ahornadern, <b>gefertigt in Deutschland.</b></p>
   <div class="ctas">
     <a class="btn btn-voll" href="#bretter">Mehr erfahren</a>
-    <a class="btn btn-linie" href="https://bretter.store/products/chob-pro">Kaufen</a>
+    <a class="btn btn-linie" href="produkt.html?modell=pro&amp;holz=walnuss">Kaufen</a>
   </div>
   <div class="hero-buehne">
     <div class="cut" style="--w:1223;--h:549;--x:89;--y:228">
@@ -708,7 +718,7 @@ function pct(a, b){ return (a / b * 100).toFixed(2) + "%"; }
 function karte(m, i){
   var h = wahl[m.id], kleiner = m.l < MAX.l || m.b < MAX.b, flacher = m.h < MAX.h;
   return '<article class="brett" data-m="'+m.id+'" aria-roledescription="Folie" aria-label="'+(i+1)+' von 3: '+m.name+'">' +
-    '<div class="kopfzeile"><h3>'+m.name+'</h3><span class="rolle">'+m.rolle+'</span></div>' +
+    '<div class="kopfzeile"><h3><a class="pdp" href="'+pdpUrl(m.id, h)+'">'+m.name+'</a></h3><span class="rolle">'+m.rolle+'</span></div>' +
     '<div class="stage">'+cut(m, h)+'</div>' +
     '<p class="tri">'+m.tri+'</p>' +
     '<div class="groesse">' +
@@ -731,11 +741,23 @@ function karte(m, i){
     '<p class="bau">'+m.l+' × '+m.b+' × '+m.h+' cm · '+m.bau+'</p>' +
     '<p class="preis" aria-live="polite"><span>'+euro(m.preis[h])+'</span><small>inkl. MwSt.</small></p>' +
     '<a class="btn btn-voll" href="'+m.url+'">In den Warenkorb</a>' +
+    '<a class="details" href="'+pdpUrl(m.id, h)+'">Details ansehen →</a>' +
   '</article>';
 }
+/* Produktdetailseite: Modell + aktuell gewähltes Holz */
+function pdpUrl(id, h){ return "produkt.html?modell=" + id + "&holz=" + h; }
 
 var spur = document.getElementById("spur");
 spur.innerHTML = MODELLE.map(karte).join("");
+
+/* Karte → Produktdetailseite: Bild, Kopfzeile und Dreiklang führen zur PDP (Holzpunkte und Warenkorb behalten ihre Funktion) */
+spur.addEventListener("click", function(e){
+  if(e.target.closest("a, button, .holz")) return;
+  var ziel = e.target.closest(".stage, .kopfzeile, .tri"); if(!ziel) return;
+  if(spur.gezogenUm && Date.now() - spur.gezogenUm < 400) return;   /* war ein Maus-Drag im Karussell */
+  var a = ziel.closest(".brett").querySelector("a.pdp");
+  if(e.metaKey || e.ctrlKey) window.open(a.href, "_blank"); else location.href = a.href;
+});
 
 /* Holzwahl: Bild, Preis, Holzfarbe in der Seitenansicht live tauschen */
 spur.addEventListener("click", function(e){
@@ -745,6 +767,7 @@ spur.addEventListener("click", function(e){
   if(wahl[id]===h) return; wahl[id] = h;
   art.querySelectorAll(".holz button").forEach(function(x){ x.setAttribute("aria-pressed", x===b); });
   art.querySelector(".holzname").textContent = HOLZ[h].label;
+  art.querySelectorAll("a.pdp, a.details").forEach(function(a){ a.setAttribute("href", pdpUrl(id, h)); });
   art.querySelector(".preis span").textContent = euro(m.preis[h]);
   art.querySelector(".seite .ist").setAttribute("data-holz", h);
   var stage = art.querySelector(".stage"), alt = stage.querySelector("img");
@@ -803,7 +826,7 @@ function karussell(track, opts){
   });
   window.addEventListener("pointerup", function(e){
     if(!drag) return; var d = drag; drag = null; if(!d.moved) return;
-    track.classList.remove("zieht");
+    track.classList.remove("zieht"); track.gezogenUm = Date.now();
     var dx = e.clientX - d.x;
     geh(Math.abs(dx) > 50 ? d.start + (dx < 0 ? 1 : -1) : d.start);
   });
